@@ -1,5 +1,14 @@
 package ru.netology
 
+
+data class Comments(
+    val count: Int = 0,
+    val canPost: Boolean = false,
+    val groupsCanPost: Boolean = false,
+    val canClose: Boolean = false,
+    val canOpen: Boolean = false
+)
+
 data class Post(
     val id: Int = 0,
     val ownerId: Int = 1,
@@ -10,16 +19,9 @@ data class Post(
     val replyOwnerId: Int = 1,
     val replyPostId: Int = 1,
     val friendsOnly: Boolean = false,
-    val copyright: String = "copyright"
-) {
-    class Comments(
-        val count: Int = 0,
-        val canPost: Boolean = false,
-        val groupsCanPost: Boolean = false,
-        val canClose: Boolean = false,
-        val canOpen: Boolean = false,
-    )
-}
+    val copyright: String = "copyright",
+    val comments: Comments = Comments()
+)
 
 object WallService {
     private var posts = emptyArray<Post>()
